@@ -1,0 +1,55 @@
+zuul:
+  ignored-services: '*'
+  routes:
+    background-management: /background/**
+    auth-center: /auth/**
+    data-service: /data/**
+  prefix: /api
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: uuid
+  type-aliases-package: com.buaa.common.entity.rbac
+  mapper-locations: classpath:/mapper/**/*.xml
+server:
+  port: 8100
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+spring:
+  http:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 500MB
+  datasource:
+    url: jdbc:mysql://10.251.254.142:3306/KJDSJ?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: g304g304
+  redis:
+    database: 14
+    host: 10.251.254.142
+    port: 6379
+    password: G304G304
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8103/me
+  basic:
+    enabled: false
+custom:
+  cache:
+    redis:
+      default-expiration: 3600
+      usePrefix: true
+      expires:
+        business:resource:role_name: 120
+  api:
+    swagger:
+      titie: API文档
+      description: Restful API文档
+      version: v1.0
+

@@ -1,0 +1,28 @@
+server:
+  port: 8104
+spring:
+  datasource:
+    url: jdbc:mysql://10.251.254.142:3306/KJDSJ?useSSL=false
+    username: root
+    password: g304g304
+  redis:
+    database: 14
+    host: 10.251.254.142
+    port: 6379
+    password: G304G304
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: uuid
+  type-aliases-package: com.buaa.common.entity.rbac
+  mapper-locations: classpath:/mapper/**/*.xml
+custom:
+  cache:
+    redis:
+      default-expiration: 3600
+      usePrefix: true
+  api:
+    swagger2:
+      title: 后台管理模块
+      description: 后台管理服务RestfulAPI
+      version: v0.1
